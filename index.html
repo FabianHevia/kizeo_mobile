@@ -114,44 +114,24 @@
                     <div class="accordion-body">
                         <form>
                             <div class="mb-3">
-                                <label for="fecha" class="form-label">Fecha</label>
-                                <input type="date" class="form-control" id="fecha" required>
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" required>
                             </div>
                             <div class="mb-3">
-                                <label for="caso" class="form-label">Caso N°</label>
+                                <label for="rut" class="form-label">RUT</label>
                                 <input type="text" class="form-control" id="caso" required>
                             </div>
                             <div class="mb-3">
-                                <label for="siniestro" class="form-label">N° de Siniestro</label>
-                                <input type="text" class="form-control" id="siniestro" required>
+                                <label for="direccion" class="form-label">Dirección</label>
+                                <input type="text" class="form-control" id="direccion" required>
                             </div>
                             <div class="mb-3">
-                                <label for="folio" class="form-label">N° de Folio</label>
-                                <input type="text" class="form-control" id="folio">
+                                <label for="comuna" class="form-label">Comuna</label>
+                                <input type="text" class="form-control" id="comuna">
                             </div>
                             <div class="mb-3">
-                                <label for="metros" class="form-label">M²</label>
-                                <input type="number" class="form-control" id="metros" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="antiguedad" class="form-label">Antigüedad del Domicilio (años)</label>
-                                <input type="number" class="form-control" id="antiguedad">
-                            </div>
-                            <div class="mb-3">
-                                <label for="liquidadora" class="form-label">Liquidadora</label>
-                                <input type="text" class="form-control" id="liquidadora">
-                            </div>
-                            <div class="mb-3">
-                                <label for="inspector" class="form-label">Inspector</label>
-                                <input type="text" class="form-control" id="inspector">
-                            </div>
-                            <div class="mb-3">
-                                <label for="evaluador" class="form-label">Evaluador</label>
-                                <input type="text" class="form-control" id="evaluador">
-                            </div>
-                            <div class="mb-3">
-                                <label for="evaluador" class="form-label">Email del Evaluador</label>
-                                <input type="text" class="form-control" id="evaluador">
+                                <label for="ciudad" class="form-label">Ciudad</label>
+                                <input type="text" class="form-control" id="ciudad">
                             </div>
                         </form>
                     </div>
@@ -165,6 +145,10 @@
                 </h2>
                 <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
+                        <!--
+
+                        HAY QUE CREAR UN TABULADOR DENTROD DE ESTO DONDE EXISTA UNA VISTA DE GOOGLE SHEETS O SIMILAR
+
                         <form>
                             <div class="mb-3">
                                 <label for="fecha" class="form-label">Fecha</label>
@@ -207,6 +191,7 @@
                                 <input type="text" class="form-control" id="evaluador">
                             </div>
                         </form>
+                        -->
                     </div>
                 </div>
             </div>
@@ -219,45 +204,29 @@
                 <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <form>
-                            <div class="mb-3">
-                                <label for="fecha" class="form-label">Fecha</label>
-                                <input type="date" class="form-control" id="fecha" required>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="fachadaFrontal">
+                                <label class="form-check-label text-danger" for="fachadaFrontal">
+                                    🏠 FACHADA FRONTAL?
+                                </label>
                             </div>
-                            <div class="mb-3">
-                                <label for="caso" class="form-label">Caso N°</label>
-                                <input type="text" class="form-control" id="caso" required>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="fachadaTrasera">
+                                <label class="form-check-label text-danger" for="fachadaTrasera">
+                                    📦 FACHADA TRASERA?
+                                </label>
                             </div>
-                            <div class="mb-3">
-                                <label for="siniestro" class="form-label">N° de Siniestro</label>
-                                <input type="text" class="form-control" id="siniestro" required>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="fachadaDerecha">
+                                <label class="form-check-label text-danger" for="fachadaDerecha">
+                                    ➡️ FACHADA DERECHA?
+                                </label>
                             </div>
-                            <div class="mb-3">
-                                <label for="folio" class="form-label">N° de Folio</label>
-                                <input type="text" class="form-control" id="folio">
-                            </div>
-                            <div class="mb-3">
-                                <label for="metros" class="form-label">M²</label>
-                                <input type="number" class="form-control" id="metros" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="antiguedad" class="form-label">Antigüedad del Domicilio (años)</label>
-                                <input type="number" class="form-control" id="antiguedad">
-                            </div>
-                            <div class="mb-3">
-                                <label for="liquidadora" class="form-label">Liquidadora</label>
-                                <input type="text" class="form-control" id="liquidadora">
-                            </div>
-                            <div class="mb-3">
-                                <label for="inspector" class="form-label">Inspector</label>
-                                <input type="text" class="form-control" id="inspector">
-                            </div>
-                            <div class="mb-3">
-                                <label for="evaluador" class="form-label">Evaluador</label>
-                                <input type="text" class="form-control" id="evaluador">
-                            </div>
-                            <div class="mb-3">
-                                <label for="evaluador" class="form-label">Email del Evaluador</label>
-                                <input type="text" class="form-control" id="evaluador">
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="fachadaIzquierda">
+                                <label class="form-check-label text-danger" for="fachadaIzquierda">
+                                    ⬅️ FACHADA IZQUIERDA?
+                                </label>
                             </div>
                         </form>
                     </div>
@@ -272,45 +241,17 @@
                 <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <form>
-                            <div class="mb-3">
-                                <label for="fecha" class="form-label">Fecha</label>
-                                <input type="date" class="form-control" id="fecha" required>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="fachadaFrontal">
+                                <label class="form-check-label text-warning" for="fachadaFrontal">
+                                    Reparación en el techo?
+                                </label>
                             </div>
-                            <div class="mb-3">
-                                <label for="caso" class="form-label">Caso N°</label>
-                                <input type="text" class="form-control" id="caso" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="siniestro" class="form-label">N° de Siniestro</label>
-                                <input type="text" class="form-control" id="siniestro" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="folio" class="form-label">N° de Folio</label>
-                                <input type="text" class="form-control" id="folio">
-                            </div>
-                            <div class="mb-3">
-                                <label for="metros" class="form-label">M²</label>
-                                <input type="number" class="form-control" id="metros" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="antiguedad" class="form-label">Antigüedad del Domicilio (años)</label>
-                                <input type="number" class="form-control" id="antiguedad">
-                            </div>
-                            <div class="mb-3">
-                                <label for="liquidadora" class="form-label">Liquidadora</label>
-                                <input type="text" class="form-control" id="liquidadora">
-                            </div>
-                            <div class="mb-3">
-                                <label for="inspector" class="form-label">Inspector</label>
-                                <input type="text" class="form-control" id="inspector">
-                            </div>
-                            <div class="mb-3">
-                                <label for="evaluador" class="form-label">Evaluador</label>
-                                <input type="text" class="form-control" id="evaluador">
-                            </div>
-                            <div class="mb-3">
-                                <label for="evaluador" class="form-label">Email del Evaluador</label>
-                                <input type="text" class="form-control" id="evaluador">
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="fachadaTrasera">
+                                <label class="form-check-label" for="fachadaTrasera">
+                                    Reacomodo de tejas?
+                                </label>
                             </div>
                         </form>
                     </div>
@@ -325,45 +266,11 @@
                 <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <form>
-                            <div class="mb-3">
-                                <label for="fecha" class="form-label">Fecha</label>
-                                <input type="date" class="form-control" id="fecha" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="caso" class="form-label">Caso N°</label>
-                                <input type="text" class="form-control" id="caso" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="siniestro" class="form-label">N° de Siniestro</label>
-                                <input type="text" class="form-control" id="siniestro" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="folio" class="form-label">N° de Folio</label>
-                                <input type="text" class="form-control" id="folio">
-                            </div>
-                            <div class="mb-3">
-                                <label for="metros" class="form-label">M²</label>
-                                <input type="number" class="form-control" id="metros" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="antiguedad" class="form-label">Antigüedad del Domicilio (años)</label>
-                                <input type="number" class="form-control" id="antiguedad">
-                            </div>
-                            <div class="mb-3">
-                                <label for="liquidadora" class="form-label">Liquidadora</label>
-                                <input type="text" class="form-control" id="liquidadora">
-                            </div>
-                            <div class="mb-3">
-                                <label for="inspector" class="form-label">Inspector</label>
-                                <input type="text" class="form-control" id="inspector">
-                            </div>
-                            <div class="mb-3">
-                                <label for="evaluador" class="form-label">Evaluador</label>
-                                <input type="text" class="form-control" id="evaluador">
-                            </div>
-                            <div class="mb-3">
-                                <label for="evaluador" class="form-label">Email del Evaluador</label>
-                                <input type="text" class="form-control" id="evaluador">
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="fachadaFrontal">
+                                <label class="form-check-label" for="fachadaFrontal">
+                                    Reparación en el cierre perimetral?
+                                </label>
                             </div>
                         </form>
                     </div>
@@ -378,45 +285,11 @@
                 <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <form>
-                            <div class="mb-3">
-                                <label for="fecha" class="form-label">Fecha</label>
-                                <input type="date" class="form-control" id="fecha" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="caso" class="form-label">Caso N°</label>
-                                <input type="text" class="form-control" id="caso" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="siniestro" class="form-label">N° de Siniestro</label>
-                                <input type="text" class="form-control" id="siniestro" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="folio" class="form-label">N° de Folio</label>
-                                <input type="text" class="form-control" id="folio">
-                            </div>
-                            <div class="mb-3">
-                                <label for="metros" class="form-label">M²</label>
-                                <input type="number" class="form-control" id="metros" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="antiguedad" class="form-label">Antigüedad del Domicilio (años)</label>
-                                <input type="number" class="form-control" id="antiguedad">
-                            </div>
-                            <div class="mb-3">
-                                <label for="liquidadora" class="form-label">Liquidadora</label>
-                                <input type="text" class="form-control" id="liquidadora">
-                            </div>
-                            <div class="mb-3">
-                                <label for="inspector" class="form-label">Inspector</label>
-                                <input type="text" class="form-control" id="inspector">
-                            </div>
-                            <div class="mb-3">
-                                <label for="evaluador" class="form-label">Evaluador</label>
-                                <input type="text" class="form-control" id="evaluador">
-                            </div>
-                            <div class="mb-3">
-                                <label for="evaluador" class="form-label">Email del Evaluador</label>
-                                <input type="text" class="form-control" id="evaluador">
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="fachadaFrontal">
+                                <label class="form-check-label" for="fachadaFrontal">
+                                    Reparación de marcos o puertas?
+                                </label>
                             </div>
                         </form>
                     </div>
@@ -431,45 +304,11 @@
                 <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <form>
-                            <div class="mb-3">
-                                <label for="fecha" class="form-label">Fecha</label>
-                                <input type="date" class="form-control" id="fecha" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="caso" class="form-label">Caso N°</label>
-                                <input type="text" class="form-control" id="caso" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="siniestro" class="form-label">N° de Siniestro</label>
-                                <input type="text" class="form-control" id="siniestro" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="folio" class="form-label">N° de Folio</label>
-                                <input type="text" class="form-control" id="folio">
-                            </div>
-                            <div class="mb-3">
-                                <label for="metros" class="form-label">M²</label>
-                                <input type="number" class="form-control" id="metros" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="antiguedad" class="form-label">Antigüedad del Domicilio (años)</label>
-                                <input type="number" class="form-control" id="antiguedad">
-                            </div>
-                            <div class="mb-3">
-                                <label for="liquidadora" class="form-label">Liquidadora</label>
-                                <input type="text" class="form-control" id="liquidadora">
-                            </div>
-                            <div class="mb-3">
-                                <label for="inspector" class="form-label">Inspector</label>
-                                <input type="text" class="form-control" id="inspector">
-                            </div>
-                            <div class="mb-3">
-                                <label for="evaluador" class="form-label">Evaluador</label>
-                                <input type="text" class="form-control" id="evaluador">
-                            </div>
-                            <div class="mb-3">
-                                <label for="evaluador" class="form-label">Email del Evaluador</label>
-                                <input type="text" class="form-control" id="evaluador">
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="fachadaFrontal">
+                                <label class="form-check-label" for="fachadaFrontal">
+                                    Reparación de Radier?
+                                </label>
                             </div>
                         </form>
                     </div>
