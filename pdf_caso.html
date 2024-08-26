@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Sidebar con Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        .wrapper {
+            display: flex;
+            flex: 1;
+        }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 1rem;
+            background-color: #f8f9fa;
+        }
+        .content {
+            margin-left: 250px; /* mismo ancho que el sidebar */
+            padding: 20px;
+            width: calc(100% - 250px);
+        }
+        @media (width < 768px) {
+            .sidebar {
+                width: 100%;
+                position: relative;
+                height: auto;
+            }
+            .content {
+                margin-left: 0;
+                width: 100%;
+            }
+            .sidebar-collapse {
+                display: grid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="mt-5">Resumen de Casos</h2>
+    
+        <!-- Información del Usuario y Fecha -->
+        <table class="table table-bordered mt-4">
+            <thead>
+                <tr>
+                    <th>Nombre del Usuario</th>
+                    <th>Fecha de Creación</th>
+                    <th>Tipo de Formulario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Carlos Fernando Lopez Silva</td>
+                    <td>11-07-24</td>
+                    <td>Inspección de Vivienda</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <!-- Tabla de Fachadas -->
+        <h4 class="mt-5">Fachadas</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Reparar?</th>
+                    <th>Ancho</th>
+                    <th>Alto</th>
+                    <th>Fisura (ML)</th>
+                    <th>Material</th>
+                    <th>Recubrimiento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Frontal</td>
+                    <td>Sí</td>
+                    <td>25,00</td>
+                    <td>2,70</td>
+                    <td>2,00</td>
+                    <td>Hormigón</td>
+                    <td>Pintura con</td>
+                </tr>
+                <tr>
+                    <td>Trasera</td>
+                    <td>No</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Lateral Izquierda</td>
+                    <td>No</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Lateral Derecha</td>
+                    <td>No</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <!-- Tabla de Techumbre -->
+        <h4 class="mt-5">Techumbre</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Reparar?</th>
+                    <th>Ancho</th>
+                    <th>Largo</th>
+                    <th>Material del Techo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>No</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <!-- Tabla de Cierre Perimetral -->
+        <h4 class="mt-5">Cierre Perimetral</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Reparar?</th>
+                    <th>Ancho</th>
+                    <th>Alto</th>
+                    <th>Fisura (ML)</th>
+                    <th>Reemplazo de Panderetas?</th>
+                    <th>Cantidad de Panderetas</th>
+                    <th>Recubrimiento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>No</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <!-- Tabla de Recintos -->
+        <h4 class="mt-5">Recintos</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Ancho</th>
+                    <th>Largo</th>
+                    <th>Alto</th>
+                    <th>Cielo?</th>
+                    <th>Fisura (ML)</th>
+                    <th>Material</th>
+                    <th>Recubrimiento</th>
+                    <th>Muro?</th>
+                    <th>Piso?</th>
+                    <th>Acomodo Inmobiliario?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cocina</td>
+                    <td>3,00</td>
+                    <td>5,00</td>
+                    <td>2,40</td>
+                    <td>No</td>
+                    <td></td>
+                    <td>Hormigón Armado (HA)</td>
+                    <td>Solo Pintura</td>
+                    <td>Sí</td>
+                    <td>No</td>
+                    <td>Sí</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

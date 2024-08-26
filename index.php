@@ -1,3 +1,40 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Recoge los datos del formulario
+    $nombre_recinto = $_POST['nombre_recinto'];
+    $ancho_recinto = $_POST['ancho_recinto'];
+    $largo_recinto = $_POST['largo_recinto'];
+    $alto_recinto = $_POST['alto_recinto'];
+    // Recoge otros campos según sea necesario...
+
+    // Verifica cuál botón fue presionado
+    if ($_POST['action'] == 'guardar') {
+        echo "GUARDAR INTERIORES";
+        /*
+        // Acción para el botón Guardar (ejemplo de conexión a BD y query)
+        $sql = "INSERT INTO instalaciones (nombre, ancho, largo, alto) VALUES ('$nombre_recinto', '$ancho_recinto', '$largo_recinto', '$alto_recinto')";
+        
+        // Aquí iría la lógica para conectar a la base de datos y ejecutar la query...
+        // mysqli_query($conn, $sql);
+
+        echo "Datos guardados en la tabla de instalaciones.";
+        */
+
+    } elseif ($_POST['action'] == 'enviar') {
+        echo "ENVIAR FORMULARIOS";
+        /*
+        // Acción para el botón Enviar
+        $sql = "INSERT INTO formularios (nombre, ancho, largo, alto) VALUES ('$nombre_recinto', '$ancho_recinto', '$largo_recinto', '$alto_recinto')";
+        
+        // Aquí iría la lógica para conectar a la base de datos y ejecutar la query...
+        // mysqli_query($conn, $sql);
+
+        echo "Datos guardados en la tabla de formularios.";
+        */
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -156,7 +193,7 @@
                                         <!-- Formulario similar al que aparece en la imagen -->
                                         <form id="recintoForm" class="mt-4">
                                             <div class="mb-3">
-                                                <label for="nombreRecinto" class="form-label">Nombre del Recinto</label>
+                                                <label for="nombreRecinto" class="form-label mt-2">Nombre del Recinto</label>
                                                 <input type="text" class="form-control" id="nombreRecinto" required>
                                             </div>
                                             <div class="mb-3">
