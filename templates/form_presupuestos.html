@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rellenar Formulario</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .accordion-button {
+            font-weight: bold;
+        }
+        .accordion-button::after {
+            color: #fff;
+        }
+        /* Custom colors for each dropdown */
+        .accordion-item:nth-child(1) .accordion-button {
+            background-color: #007bff; /* Presupuesto (Azul) */
+            color: #fff;
+        }
+        .accordion-item:nth-child(2) .accordion-button {
+            background-color: #28a745; /* Cliente (Verde) */
+            color: #fff;
+        }
+        .accordion-item:nth-child(3) .accordion-button {
+            background-color: #17a2b8; /* Interiores (Celeste) */
+            color: #fff;
+        }
+        .accordion-item:nth-child(4) .accordion-button {
+            background-color: #dc4562; /* Fachadas (Rojo) */
+            color: #fff;
+        }
+        .accordion-item:nth-child(5) .accordion-button {
+            background-color: #ffc107; /* Techo (Amarillo) */
+            color: #fff;
+        }
+        .accordion-item:nth-child(6) .accordion-button {
+            background-color: #007bff; /* Cierre Perimetral (Azul) */
+            color: #fff;
+        }
+        .accordion-item:nth-child(7) .accordion-button {
+            background-color: #28a745; /* Puertas (Verde) */
+            color: #fff;
+        }
+        .accordion-item:nth-child(8) .accordion-button {
+            background-color: #007bff; /* Radier (Azul) */
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="info-general-tab" data-bs-toggle="tab" data-bs-target="#info-general" type="button" role="tab" aria-controls="info-general" aria-selected="true">
+              Información General
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="interiores-tab" data-bs-toggle="tab" data-bs-target="#interiores" type="button" role="tab" aria-controls="interiores" aria-selected="false">
+              Interiores
+            </button>
+          </li>
+        </ul>
+      
+        <!-- Tab content -->
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="info-general" role="tabpanel" aria-labelledby="info-general-tab">
+            <div class="accordion" id="accordionExample">
+            <form id="presupuestoForm"  class="mt-4" action="form1.php?id_form=1&id_caso=<?php echo $id_caso; ?>&username=<?php echo $username ?>" method="POST" enctype="multipart/form-data" novalidate>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            📋 Datos del Presupuesto
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="mb-3">
+                                <label for="fecha" class="form-label">Fecha</label>
+                                <input type="date" class="form-control" id="fecha" name="fecha" value="{{ formulario['fecha'] }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="caso" class="form-label">Caso N°</label>
+                                <input type="text" class="form-control" id="caso" name="caso" value="{{ formulario['n_caso'] }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="siniestro" class="form-label">N° de Siniestro</label>
+                                <input type="text" class="form-control" id="siniestro" name="siniestro" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="folio" class="form-label">N° de Folio</label>
+                                <input type="text" class="form-control" id="folio" name="folio" value="{{ formulario['n_folio'] }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="metros" class="form-label">M²</label>
+                                <input type="number" class="form-control" id="metros" name="metros" value="{{ formulario['metros_cuadrados'] }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="antiguedad" class="form-label">Antigüedad del Domicilio (años)</label>
+                                <input type="number" class="form-control" id="antiguedad" name="antiguedad" value="{{ formulario['antiguedad_domicilio'] }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="liquidadora" class="form-label">Liquidadora</label>
+                                <input type="text" class="form-control" id="liquidadora" name="liquidadora" value="{{ formulario['liquidadora'] }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="inspector" class="form-label">Inspector</label>
+                                <input type="text" class="form-control" id="inspector" name="inspector" value="{{ formulario['inspector'] }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="evaluador" class="form-label">Evaluador</label>
+                                <input type="text" class="form-control" id="evaluador" name="evaluador" value="{{ formulario['evaluador'] }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email_evaluador" class="form-label">Email del Evaluador</label>
+                                <input type="text" class="form-control" id="email_evaluador" name="email_evaluador" value="{{ formulario['email_evaluador'] }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            👤 Datos del Cliente
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" value="{{ formulario['cliente_nombre'] }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="rut" class="form-label">RUT</label>
+                                <input type="text" class="form-control" id="rut" name="rut" value="{{ formulario['cliente_rut'] }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="direccion" class="form-label">Dirección</label>
+                                <input type="text" class="form-control" id="direccion" name="direccion" value="{{ formulario['cliente_nombre'] }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="comuna" class="form-label">Comuna</label>
+                                <input type="text" class="form-control" id="comuna" name="comuna" value="<?php echo htmlspecialchars($comuna); ?>">
+                            </div>
+                            <div class="mb-3">
+                                <label for="ciudad" class="form-label">Ciudad</label>
+                                <input type="text" class="form-control" id="ciudad" name="ciudad" value="<?php echo htmlspecialchars($ciudad); ?>">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            🏛️ Fachadas
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="fachadaFrontal" name="fachadaFrontal" 
+                                {% if formulario['fachada_frontal'] %} checked {% endif %} onclick="toggleFields('fachadaFrontal')">
+                                <label class="form-check-label text-danger" for="fachadaFrontal">
+                                    🏠 FACHADA FRONTAL?
+                                </label>
+                                <!-- Campos adicionales -->
+                            <div id="camposAdicionales" style="display: none;">
+                                <div class="mb-3">
+                                    <label for="tamanoFisura" class="form-label">Tamaño de Fisura (Mts)</label>
+                                    <input type="text" class="form-control" id="tamanoFisura" name="tamanoFisura">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="anchoFachada" class="form-label">Ancho de la Fachada (Mts)</label>
+                                    <input type="text" class="form-control" id="anchoFachada" name="anchoFachada">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="altoFachada" class="form-label">Alto de la Fachada (Mts)</label>
+                                    <input type="text" class="form-control" id="altoFachada" name="altoFachada">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="materialFachada" class="form-label">Material de la Fachada Frontal</label>
+                                    <input type="text" class="form-control" id="materialFachada" name="materialFachada">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="recubrimientoFachada" class="form-label">Recubrimiento de la Fachada Frontal</label>
+                                    <input type="text" class="form-control" id="recubrimientoFachada" name="recubrimientoFachada">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="fotoFachada1" class="form-label">Foto #1 Fachada Frontal</label>
+                                    <input type="file" class="form-control" id="fotoFachada1" name="fotoFachada1">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="fotoFachada2" class="form-label">Foto #2 Fachada Frontal</label>
+                                    <input type="file" class="form-control" id="fotoFachada2" name="fotoFachada2">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="fotoFachada3" class="form-label">Foto #3 Fachada Frontal</label>
+                                    <input type="file" class="form-control" id="fotoFachada3" name="fotoFachada3">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="fotoFachada4" class="form-label">Foto #4 Fachada Frontal</label>
+                                    <input type="file" class="form-control" id="fotoFachada4" name="fotoFachada4">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="fotoFachada5" class="form-label">Foto #5 Fachada Frontal</label>
+                                    <input type="file" class="form-control" id="fotoFachada5" name="fotoFachada5">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="fotoFachada6" class="form-label">Foto #6 Fachada Frontal</label>
+                                    <input type="file" class="form-control" id="fotoFachada6" name="fotoFachada6">
+                                </div>
+                            </div>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="fachadaTrasera" name="fachadaTrasera" 
+                                {% if formulario['fachada_trasera'] %} checked {% endif %} onclick="toggleFields('fachadaTrasera')">
+                                <label class="form-check-label text-danger" for="fachadaTrasera">
+                                    📦 FACHADA TRASERA?
+                                </label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="fachadaDerecha" name="fachadaDerecha" 
+                                {% if formulario['fachada_derecha'] %} checked {% endif %} onclick="toggleFields('fachadaDerecha')">
+                                <label class="form-check-label text-danger" for="fachadaDerecha">
+                                    ➡️ FACHADA DERECHA?
+                                </label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="fachadaIzquierda" name="fachadaIzquierda" 
+                                {% if formulario['fachada_izquierda'] %} checked {% endif %} onclick="toggleFields('fachadaIzquierda')">
+                                <label class="form-check-label text-danger" for="fachadaIzquierda">
+                                    ⬅️ FACHADA IZQUIERDA?
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            🔺 Techo
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="reparacionTecho" name="reparacionTecho" 
+                                {% if formulario['reparacion_techo'] %} checked {% endif %}>
+                                <label class="form-check-label text-warning" for="reparacionTecho">
+                                    Reparación en el techo?
+                                </label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="reacomodoTejas" name="reacomodoTejas" 
+                                {% if formulario['reacomodo_tejas'] %} checked {% endif %}>
+                                <label class="form-check-label" for="reacomodoTejas">
+                                    Reacomodo de tejas?
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSix">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            🧱 Cierre Perimetral
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="reparacionCierrePerimetral" name="reparacionCierrePerimetral" 
+                                {% if formulario['cierre_perimetral'] %} checked {% endif %}>
+                                <label class="form-check-label" for="reparacionCierrePerimetral">
+                                    Reparación en el cierre perimetral?
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSeven">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                            🚪 Puertas
+                        </button>
+                    </h2>
+                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="reparacionMarcosPuertas" name="reparacionMarcosPuertas" 
+                                {% if formulario['marcos_puertas'] %} checked {% endif %}>
+                                <label class="form-check-label" for="reparacionMarcosPuertas">
+                                    Reparación de marcos o puertas?
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingEight">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                            🧱 Radier
+                        </button>
+                    </h2>
+                    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="reparacionRadier" name="reparacionRadier" 
+                                {% if formulario['radier'] %} checked {% endif %}>
+                                <label class="form-check-label" for="reparacionRadier">
+                                    Reparación de Radier?
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             <!-- Campos ocultos para enviar los parámetros de la URL -->
+                <input type="hidden" name="id_form" value="<?php echo htmlspecialchars($id_form); ?>">
+                <input type="hidden" name="username" value="<?php echo htmlspecialchars($username); ?>">
+                <input type="hidden" name="id_caso" value="<?php echo htmlspecialchars($id_caso); ?>">
+                <button type="submit" name="action" value="enviar" class="btn btn-primary mt-1">Enviar</button>
+            </form>
+                
+            </div>
+          </div>
+          <div class="tab-pane fade" id="interiores" role="tabpanel" aria-labelledby="interiores-tab">
+            <!-- Nested tabs for Interiores -->
+            <ul class="nav nav-tabs mt-3" id="interioresTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="formulario-interiores-tab" data-bs-toggle="tab" data-bs-target="#formulario-interiores" type="button" role="tab" aria-controls="formulario-interiores" aria-selected="true">
+                  Formulario Interiores
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tabla-interiores-tab" data-bs-toggle="tab" data-bs-target="#tabla-interiores" type="button" role="tab" aria-controls="tabla-interiores" aria-selected="false">
+                  Tabla Interiores
+                </button>
+              </li>
+            </ul>
+      
+            <!-- Nested Tab content for Interiores -->
+            <div class="tab-content mt-3" id="interioresTabContent">
+              <div class="tab-pane fade show active" id="formulario-interiores" role="tabpanel" aria-labelledby="formulario-interiores-tab">
+                <form id="recintoForm" class="mt-4" action="form1.php?id_form=1&id_caso=<?php echo $id_caso; ?>&username=<?php echo $username ?>" method="POST" enctype="multipart/form-data" novalidate>
+                    <div class="mb-3">
+                        <label for="nombreRecinto" class="form-label mt-2">Nombre del Recinto</label>
+                        <input type="text" class="form-control" id="nombre_recinto" name="nombre_recinto" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="anchoRecinto" class="form-label">Ancho del Recinto (Mts.)</label>
+                        <input type="number" class="form-control" id="ancho_recinto" name="ancho_recinto" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="largoRecinto" class="form-label">Largo del Recinto (Mts.)</label>
+                        <input type="number" class="form-control" id="largo_recinto" name="largo_recinto" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="altoRecinto" class="form-label">Alto del Recinto (Mts.)</label>
+                        <input type="number" class="form-control" id="alto_recinto" name="alto_recinto" required>
+                    </div>
+                    <!-- Sección de reparaciones -->
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="reparacion_cielo" name="reparacion_cielo">
+                        <label class="form-check-label" for="reparacion_cielo">Reparación en Cielo</label>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="reparacion_piso" name="reparacion_piso">
+                        <label class="form-check-label" for="reparacionPiso">Reparación en Piso</label>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="reparacion_muro" name="reparacion_muro">
+                        <label class="form-check-label" for="reparacionMuro">Reparación en Muro</label>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="reparacion_cornisa" name="reparacion_cornisa">
+                        <label class="form-check-label" for="reparacionCornisa">Reparación en Cornisa</label>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="retiro_mobiliario" name="retiro_mobiliario">
+                        <label class="form-check-label" for="retiroMobiliario">Retiro e Instalación Mobiliario</label>
+                    </div>
+                    <!-- Fotos -->
+                    <div class="mb-3">
+                        <label for="foto1" class="form-label">Foto #1 del Recinto</label>
+                        <input type="file" class="form-control" id="foto1" name="foto1" accept="image/*">
+                    </div>
+                    <div class="mb-3">
+                        <label for="foto2" class="form-label">Foto #2 del Recinto</label>
+                        <input type="file" class="form-control" id="foto2" name="foto2" accept="image/*">
+                    </div>
+                    <!-- Agrega más campos de fotos si es necesario -->
+                    <div class="mb-3">
+                        <label for="observaciones" class="form-label">Observaciones</label>
+                        <textarea class="form-control" id="observaciones" name="observaciones" rows="3"></textarea>
+                    </div>
+                     <!-- Campos ocultos para pasar id_form y username -->
+                    <input type="hidden" name="id_form" value="<?php echo $id_form; ?>">
+                    <input type="hidden" name="id_caso" value="<?php echo $id_caso; ?>">
+                    <input type="hidden" name="username" value="<?php echo $username; ?>">
+                    <button type="submit" name="action" value="guardar" class="btn btn-primary">Agregar</button>
+                </form>
+              </div>
+              <div class="tab-pane fade" id="tabla-interiores" role="tabpanel" aria-labelledby="tabla-interiores-tab">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nombre del Recinto</th>
+                            <th>Ancho (Mts.)</th>
+                            <th>Largo (Mts.)</th>
+                            <th>Alto (Mts.)</th>
+                            <th>Reparación en Cielo</th>
+                            <th>Reparación en Piso</th>
+                            <th>Reparación en Muro</th>
+                            <th>Reparación en Cornisa</th>
+                            <th>Retiro Mobiliario</th>
+                            <th>Observaciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if interiores %}
+                            {% for interior in interiores %}
+                            <tr>
+                                <td>{{ interior.nombre_recinto }}</td>
+                                <td>{{ interior.ancho_recinto }}</td>
+                                <td>{{ interior.largo_recinto }}</td>
+                                <td>{{ interior.alto_recinto }}</td>
+                                <td>{{ interior.reparacion_cielo }}</td>
+                                <td>{{ interior.reparacion_piso }}</td>
+                                <td>{{ interior.reparacion_muro }}</td>
+                                <td>{{ interior.reparacion_cornisa }}</td>
+                                <td>{{ interior.retiro_instalacion_mobiliario }}</td>
+                                <td>{{ interior.observaciones }}</td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                        <tr>
+                            <td colspan="10">No se encontraron registros para este caso.</td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+            
+          </div>
+        </div>
+      </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function toggleFields(fachada) {
+        // Obtener los checkboxes
+        const fachadaFrontal = document.getElementById('fachadaFrontal').checked;
+        const fachadaTrasera = document.getElementById('fachadaTrasera').checked;
+        const fachadaDerecha = document.getElementById('fachadaDerecha').checked;
+        const fachadaIzquierda = document.getElementById('fachadaIzquierda').checked;
+    
+        // Mostrar u ocultar los campos adicionales si al menos uno está marcado
+        const camposAdicionales = document.getElementById('camposAdicionales');
+        if (fachadaFrontal || fachadaTrasera || fachadaDerecha || fachadaIzquierda) {
+            camposAdicionales.style.display = 'block';
+        } else {
+            camposAdicionales.style.display = 'none';
+        }
+    }
+    </script>
+</body>
+</html>

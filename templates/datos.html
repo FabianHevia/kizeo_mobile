@@ -57,6 +57,7 @@
     </div>
 </nav>
 
+{% if is_admin == 1 %}
 <div class="wrapper">
     <nav class="sidebar" id="sidebarMenu">
         <ul class="nav flex-column">
@@ -70,18 +71,16 @@
                     <i class="fas fa-folder-open"></i> Datos de los Casos
                 </a>
             </li>
-            {% if is_admin == 1 %}
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('permisos') }}">
                     <i class="fas fa-user-shield"></i> Gestión de Permisos
                 </a>
             </li>
-            {% endif %}
         </ul>
     </nav>
 </div>
-
-    <div class="content">
+<div class="content">
+{% endif %}
         <div class="container mt-1">
            <h1>Resumen Casos</h1>
         
@@ -186,7 +185,9 @@
 
         </div>
     </div>
+{% if is_admin == 1 %}
 </div>
+{% endif %}
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
