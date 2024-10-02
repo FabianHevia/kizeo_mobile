@@ -1,4 +1,5 @@
 <?php
+/*
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -56,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $foto1 = ($_FILES['foto1']['name']) ? $_FILES['foto1']['name'] : null;
             $foto2 = ($_FILES['foto2']['name']) ? $_FILES['foto2']['name'] : null;
             */
+            /*
             $foto1 = ($_FILES['foto1']['name']);
             $foto2 = ($_FILES['foto2']['name']);
             // Guardar fotos en una carpeta
@@ -66,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             /*
             $target_file1 = $foto1 ? $target_dir . basename($_FILES["foto1"]["name"]) : null;
             $target_file2 = $foto2 ? $target_dir . basename($_FILES["foto2"]["name"]) : null;
-            */
+
             if ($foto1) {
                 move_uploaded_file($_FILES["foto1"]["tmp_name"], $target_file1);
             }
@@ -427,6 +429,7 @@ if ($result->num_rows > 0) {
 }
 
 $stmt->close();
+*/
 ?>
 
 <!DOCTYPE html>
@@ -759,11 +762,11 @@ $stmt->close();
                     <!-- Fotos -->
                     <div class="mb-3">
                         <label for="foto1" class="form-label">Foto #1 del Recinto</label>
-                        <input type="file" class="form-control" id="foto1" name="foto1" accept="image/*">
+                        <input type="file" class="form-control" id="foto1" name="foto1" accept="image/*" capture="camera">
                     </div>
                     <div class="mb-3">
                         <label for="foto2" class="form-label">Foto #2 del Recinto</label>
-                        <input type="file" class="form-control" id="foto2" name="foto2" accept="image/*">
+                        <input type="file" class="form-control" id="foto2" name="foto2" accept="image/*" capture="camera">
                     </div>
                     <!-- Agrega más campos de fotos si es necesario -->
                     <div class="mb-3">
