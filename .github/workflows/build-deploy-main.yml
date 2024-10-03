@@ -1,0 +1,60 @@
+name: remote ssh command
+on: 
+  push:
+    branches: [ main ]
+env:
+  ENVIROMENT_DOMAIN: 146.148.55.202
+  NAME_OF_REPOSITORY: odoo_volparts
+  NAME_BRANCH: main
+  PORT_UPDATE: 8001
+
+jobs:
+  pull_code:
+    name: Pull Code
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Add SSH host key
+      run: |
+        mkdir -p ~/.ssh
+        ssh-keyscan -H ${{ env.ENVIROMENT_DOMAIN }} >> ~/.ssh/known_hosts
+        cat ~/.ssh/known_hosts
+        pwd
+
+    - name: executing remote ssh commands using ssh key
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ env.ENVIROMENT_DOMAIN }}
+        username: cristobal_chacon
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        script: |
+          # Entrar en el directorio del repositorio
+          cd /home/cristobal_chacon/kizeo_mobile
+          # Hacer fetch del repositorio
+          git fetch
+          # Hacer checkout a la rama staging
+          git checkout main
+          git pull
+
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: pull_code
+    steps:
+      - name: Deploy last code in Odoo installation
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ env.ENVIROMENT_DOMAIN }}
+          username: cristobal_chacon
+          key: ${{ secrets.SSH_PRIVATE_KEY }}  # Clave SSH
+          port: 22  # Puerto SSH por defecto
+          script: |
+            # Entrar en el directorio de los módulos
+            cd /home/cristobal_chacon/kizeo_mobile
+            source venv/bin/activate
+            pip install -r requirements.txt
+            pkill -f "python main.py"
+            nohup python main.py 
